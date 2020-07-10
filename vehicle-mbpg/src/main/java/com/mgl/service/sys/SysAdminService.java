@@ -37,4 +37,6 @@ public interface SysAdminService extends IService<SysAdmin> {
     CommonResult changePassword(Long id);
 
     CommonResult updatePwd(Long id, String newPwd, String oldPwd);
+
+    List<SysAdmin>  getAountListNoPage();
 }

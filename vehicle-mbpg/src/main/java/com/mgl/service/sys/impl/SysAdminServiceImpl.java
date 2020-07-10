@@ -51,6 +51,13 @@ public class SysAdminServiceImpl extends ServiceImpl<SysAdminMapper, SysAdmin> i
 
 
     @Override
+    public List<SysAdmin> getAountListNoPage() {
+        return adminMapper.getAountListNoPage();
+    }
+
+
+
+    @Override
     public SysAdminDto getAcountById(Long id) {
         return adminMapper.getAcountById(id);
     }

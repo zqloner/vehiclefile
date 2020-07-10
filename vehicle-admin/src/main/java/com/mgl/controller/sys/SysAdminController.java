@@ -43,6 +43,14 @@ public class SysAdminController {
     }
 
 
+    @GetMapping("/listNoPage")
+    @ResponseBody
+    @ApiOperation(value = "查询管理员list不分页",notes = "查询管理员列表")
+    public CommonResult getListNoPage(){
+        return CommonResult.success(sysAdminService.getAountListNoPage());
+    }
+
+
     @PostMapping("/add")
     @ResponseBody
     @ApiOperation(value = "添加管理员", notes = "添加管理员")

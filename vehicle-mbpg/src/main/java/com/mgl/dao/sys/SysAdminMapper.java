@@ -22,4 +22,6 @@ public interface SysAdminMapper extends BaseMapper<SysAdmin> {
 
     List<SysAdminDto> getAountList();
     SysAdminDto getAcountById(Long id);
+
+    List<SysAdmin> getAountListNoPage();
 }

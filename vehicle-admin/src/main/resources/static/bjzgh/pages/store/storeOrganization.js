@@ -13,7 +13,7 @@ layui.config({
         , projectile = layui.projectile //自定义弹窗
         , pagination = layui.pagination //自定义分页
         , pageFlag = true
-        , url = "/sysOrganizationStructure/list",
+        , url = "/storeOrganizationStructure/list",
         treeData = [ ];
     // 列表渲染
     var searchObj = {};
@@ -26,9 +26,9 @@ layui.config({
             // 设置表头参数
             cols: [
                 [
-                    {field: 'parentName', title: '上级组织结构名称', width: '20%'},
-                    {field: 'name', title: '组织结构名称', width: '20%'}
-                    , {field: 'createUsername', title: '创建人名称', width: '30%'}
+                    {field: 'parentName', title: '上级库房名称', width: '20%'},
+                    {field: 'name', title: '库房名称', width: '20%'}
+                    , {field: 'managerName', title: '库房管理人名称', width: '30%'}
                     , {
                     title: '操作', width: '20%', templet: function (d) {
                         return '<a class="layui-btn layui-btn-primary layui-btn-xs table-btn" lay-event="edit">编辑</a>'
@@ -80,8 +80,8 @@ layui.config({
                         for (var i = 0; i < oldList.length; i++) {
                             var param = {};
                             param.name = oldList[i].name;
-                            param.createUsername = oldList[i].createUsername;
                             param.parentName = oldList[i].parentName;
+                            param.managerName = oldList[i].managerName;
                             param.id = oldList[i].id;
                             myList.push(param)
                         }
@@ -98,54 +98,30 @@ layui.config({
     // 初始化加载
     getCadreList();
 
-    //权限数据加载
-    // 加载数据
-    function getmMenuList() {
+    var adminUsers = [];
+
+    // 获取管理人
+    function getAdminUser() {
         $.ajax({
-            url: "/sysMenu/menuList",
+            url: "/sysAdmin/listNoPage",
             type: "GET",
             success: function (res) {
-                if (res.code == 200) {
-                    var oldList = res.data;
-                    searchObj.menuList = res.data;
-                    var myList = [];
-                    if (oldList != undefined && oldList.length > 0) {
-                        /*                     <div class="layui-input-block checkbox-margin">
-                                                   <input type="checkbox" name="myPerMissions" value="14" title="网站信息管理"
-                                                lay-skin="primary">
-                                                    </div>
-                                                    <div class="layui-input-block layui-input-block-long checkbox-margin  checkbox-second">
-                                                    <input type="checkbox" name="myPerMissions" value="15" title="新闻管理" lay-skin="primary">
-                                                    <input type="checkbox" name="myPerMissions" value="16" title="疗休养简介" lay-skin="primary">
-                                                    <input type="checkbox" name="myPerMissions" value="17" title="疗休养管理" lay-skin="primary">
-                                                    <input type="checkbox" name="myPerMissions" value="18" title="疗养路线管理" lay-skin="primary">
-                                                    </div>
-                                                    */
-                        var myHtml = '<label class="layui-form-label" >角色权限：</label>';
-                        for (var i = 0; i < oldList.length; i++) {
-                            var par = '<div class="layui-input-block checkbox-margin"><input type="checkbox" class="par" name="myPerMissions" value="' + oldList[i].id +
-                                '" title="' + oldList[i].name + '" lay-filter="myPar" lay-skin="primary"></div>';
-                            var chil = ' <div class="layui-input-block layui-input-block-long checkbox-margin  checkbox-second"> ';
-                            var dren = '</div>';
-                            for (var j = 0; j < oldList[i].children.length; j++) {
-                                chil += ' <input type="checkbox" class="myChild child" name="myPerMissions" value="' + oldList[i].children[j].id + '" title="' + oldList[i].children[j].name + '" ' +
-                                    'lay-filter="myChild" lay-skin="primary">';
-                            }
-                            myHtml += par + chil + dren;
-                        }
-                        $("#myMenus").html(myHtml);
-                        form.render();
+                if (res.code == "200") {
+                    var html = '<option value="">请选择管理人</option>';
+                    for (var i = 0; i <res.data.length ; i++) {
+                        html += '<option value="'+res.data[i].id+'">'+res.data[i].name+'('+res.data[i].organizationalStructureName+')'+'</option>'
                     }
+                    $("[name = 'managerId']").html(html);
+                    adminUsers = res.data;
+                    form.render();
                 } else {
-                    layer.msg("操作失败");
+                    layer.msg(res.data.msg);
                 }
             }
         });
     }
 
-    // 初始化加载
-    getmMenuList();
-
+    getAdminUser();
     // 监听多选框事件（点击一个得到其附属权限）
     form.on('checkbox(myPar)', function (data) {
         if ($(this).prop("checked")) {
@@ -175,7 +151,7 @@ layui.config({
     // 监听表格操作按钮点击
     function toUpdate() {
         $.ajax({
-            url: "/sysOrganizationStructure/toUpdate",
+            url: "/storeOrganizationStructure/toUpdate",
             type: "POST",
             data: {"id": searchObj.id},
             success: function (res) {
@@ -184,6 +160,8 @@ layui.config({
                     $("[name=pid]").val(res.data.pid);
                     $("[name=name]").val(res.data.name);
                     $("[name=id]").val(res.data.id);
+                    $("[name=managerId]").val(res.data.managerId);
+                    debugger;
                     form.render();
                 }
             },
@@ -203,10 +181,15 @@ layui.config({
                     params.name = data.field.name;
                     params.parentName = data.field.parentName;
                     params.pid = data.field.pid;
-                    params.id = obj.data.id;
-                    debugger;
+                    params.id = data.field.id;
+                    params.managerId = $("select[name='managerId']").val();
+                    for (var i = 0; i < adminUsers.length;i++) {
+                        if (params.managerId == adminUsers[i].id) {
+                            params.managerName = adminUsers[i].name;
+                        }
+                    }
                     $.ajax({
-                        url: "sysOrganizationStructure/addOrUpdate",
+                        url: "storeOrganizationStructure/addOrUpdate",
                         type: "POST",
                         data: params,
                         success: function (res) {
@@ -228,7 +211,7 @@ layui.config({
         } else if (obj.event === 'delete') { // 操作—删除
             layer.confirm('确定要删除该角色吗？', function (index) {
                 $.ajax({
-                    url: "/sysOrganizationStructure/delete",
+                    url: "/storeOrganizationStructure/delete",
                     type: "GET",
                     data: {"id": obj.data.id},
                     success: function (res) {
@@ -253,6 +236,8 @@ layui.config({
         $("[name='pid']").val("");
         $("[name='id']").val("");
         $("[name='name']").val("");
+        $("[name='managerName']:selected").text("");
+        $("[name='managerName']:selected").val("");
         form.render();
         projectile.elastic({title: " ", content: $("#popup"), area: ['800px', '486px']}, function () {
             // 监听提交
@@ -262,9 +247,15 @@ layui.config({
                 params.parentName = data.field.parentName;
                 params.pid = data.field.pid;
                 params.id = data.field.id;
+                params.managerId = $("select[name='managerName']").val();
+                for (var i = 0; i < adminUsers.length;i++) {
+                    if (params.managerId == adminUsers[i].id) {
+                        params.managerName = adminUsers[i].name;
+                    }
+                }
                 debugger;
                 $.ajax({
-                    url: "sysOrganizationStructure/addOrUpdate",
+                    url: "storeOrganizationStructure/addOrUpdate",
                     type: "POST",
                     data: params,
                     success: function (res) {
@@ -328,7 +319,7 @@ layui.config({
 //    获取树子数据
     function getTreeData() {
         $.ajax({
-            url: "sysOrganizationStructure/getListNoPage",
+            url: "storeOrganizationStructure/getListNoPage",
             type: "GET",
             success: function (res) {
                 var myArray = [];
