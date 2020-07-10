@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.service.ServiceStationRepairOrderCheckDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.service.ServiceStationRepairOrderCheckDetail">
+        <id column="id" property="id" />
+        <result column="service_station_repair_order_id" property="serviceStationRepairOrderId" />
+        <result column="check_uid" property="checkUid" />
+        <result column="check_username" property="checkUsername" />
+        <result column="check_status" property="checkStatus" />
+        <result column="content" property="content" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, service_station_repair_order_id, check_uid, check_username, check_status, content, create_time
+    </sql>
+
+</mapper>

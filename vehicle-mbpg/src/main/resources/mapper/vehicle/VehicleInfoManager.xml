@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.vehicle.VehicleInfoManagerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.vehicle.VehicleInfoManager">
+        <id column="id" property="id" />
+        <result column="car_factory" property="carFactory" />
+        <result column="order_number" property="orderNumber" />
+        <result column="car_number" property="carNumber" />
+        <result column="vin" property="vin" />
+        <result column="battery_number" property="batteryNumber" />
+        <result column="and_the_number" property="andTheNumber" />
+        <result column="string_of_number" property="stringOfNumber" />
+        <result column="AH_number" property="ahNumber" />
+        <result column="box_number" property="boxNumber" />
+        <result column="battery_structure" property="batteryStructure" />
+        <result column="is_slideway" property="isSlideway" />
+        <result column="all_car_model" property="allCarModel" />
+        <result column="dynamic_model" property="dynamicModel" />
+        <result column="bcu_model" property="bcuModel" />
+        <result column="mmu_model" property="mmuModel" />
+        <result column="program_version" property="programVersion" />
+        <result column="dynamic_type" property="dynamicType" />
+        <result column="electrical_machinery_vender" property="electricalMachineryVender" />
+        <result column="electrical_machinery_power" property="electricalMachineryPower" />
+        <result column="keep_warm_system" property="keepWarmSystem" />
+        <result column="keep_hart_system" property="keepHartSystem" />
+        <result column="keep_cool_system" property="keepCoolSystem" />
+        <result column="run_area" property="runArea" />
+        <result column="run_province" property="runProvince" />
+        <result column="run_city" property="runCity" />
+        <result column="run_county" property="runCounty" />
+        <result column="car_belong_user" property="carBelongUser" />
+        <result column="out_vender_date" property="outVenderDate" />
+        <result column="service_time" property="serviceTime" />
+        <result column="quality_guarantee_year" property="qualityGuaranteeYear" />
+        <result column="quality_guarantee_mileage" property="qualityGuaranteeMileage" />
+        <result column="car_repaire_count" property="carRepaireCount" />
+        <result column="battery_repaire_count" property="batteryRepaireCount" />
+        <result column="public_hour_table" property="publicHourTable" />
+        <result column="ceate_uid" property="ceateUid" />
+        <result column="create_username" property="createUsername" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+        <result column="is_over_insured" property="isOverInsured" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, car_factory, order_number, car_number, vin, battery_number, and_the_number, string_of_number, AH_number, box_number, battery_structure, is_slideway, all_car_model, dynamic_model, bcu_model, mmu_model, program_version, dynamic_type, electrical_machinery_vender, electrical_machinery_power, keep_warm_system, keep_hart_system, keep_cool_system, run_area, run_province, run_city, run_county, car_belong_user, out_vender_date, service_time, quality_guarantee_year, quality_guarantee_mileage, car_repaire_count, battery_repaire_count, public_hour_table, ceate_uid, create_username, create_time, update_time, del_flag, is_over_insured
+    </sql>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.store.StoreOrderMeterialDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.store.StoreOrderMeterialDetail">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="order_number" property="orderNumber" />
+        <result column="current_store_id" property="currentStoreId" />
+        <result column="faraway_store_id" property="farawayStoreId" />
+        <result column="
+material_id" property="
+materialId" />
+        <result column="count" property="count" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, order_id, order_number, current_store_id, faraway_store_id, 
+material_id, count, del_flag
+    </sql>
+
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.service.ServiceStationListMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.service.ServiceStationList">
+        <id column="id" property="id" />
+        <result column="area" property="area" />
+        <result column="province" property="province" />
+        <result column="city" property="city" />
+        <result column="county" property="county" />
+        <result column="station_name" property="stationName" />
+        <result column="station_type" property="stationType" />
+        <result column="first_manager_id" property="firstManagerId" />
+        <result column="first_manager_name" property="firstManagerName" />
+        <result column="second_manager_id" property="secondManagerId" />
+        <result column="second_manager_name" property="secondManagerName" />
+        <result column="third_manager_id" property="thirdManagerId" />
+        <result column="third_manager_name" property="thirdManagerName" />
+        <result column="fourth_manager_id" property="fourthManagerId" />
+        <result column="fourth_manager_name" property="fourthManagerName" />
+        <result column="station_store_id" property="stationStoreId" />
+        <result column="station_store_name" property="stationStoreName" />
+        <result column="is_core_station" property="isCoreStation" />
+        <result column="station_create_date" property="stationCreateDate" />
+        <result column="belong_tree_address" property="belongTreeAddress" />
+        <result column="repaire_hour_price" property="repaireHourPrice" />
+        <result column="out_mileage_price" property="outMileagePrice" />
+        <result column="out_subsidy" property="outSubsidy" />
+        <result column="auxiliary_equipment_cost" property="auxiliaryEquipmentCost" />
+        <result column="out_car_first" property="outCarFirst" />
+        <result column="out_car_second" property="outCarSecond" />
+        <result column="create_userId" property="createUserid" />
+        <result column="create_userName" property="createUsername" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, area, province, city, county, station_name, station_type, first_manager_id, first_manager_name, second_manager_id, second_manager_name, third_manager_id, third_manager_name, fourth_manager_id, fourth_manager_name, station_store_id, station_store_name, is_core_station, station_create_date, belong_tree_address, repaire_hour_price, out_mileage_price, out_subsidy, auxiliary_equipment_cost, out_car_first, out_car_second, create_userId, create_userName, create_time, update_time, del_flag
+    </sql>
+
+</mapper>

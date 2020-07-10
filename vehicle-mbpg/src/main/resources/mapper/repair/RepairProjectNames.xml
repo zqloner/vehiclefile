@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.repair.RepairProjectNamesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.repair.RepairProjectNames">
+        <id column="id" property="id" />
+        <result column="hour_id" property="hourId" />
+        <result column="project_name" property="projectName" />
+        <result column="unit" property="unit" />
+        <result column="first_repair_hours" property="firstRepairHours" />
+        <result column="repeat_overlay_hours" property="repeatOverlayHours" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, hour_id, project_name, unit, first_repair_hours, repeat_overlay_hours, create_uid, create_time, update_time, del_flag
+    </sql>
+
+</mapper>

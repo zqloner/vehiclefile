@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.store.StoreApplyOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.store.StoreApplyOrder">
+        <id column="id" property="id" />
+        <result column="apply_number" property="applyNumber" />
+        <result column="apply_uid" property="applyUid" />
+        <result column="apply_username" property="applyUsername" />
+        <result column="apply_time" property="applyTime" />
+        <result column="apply_type" property="applyType" />
+        <result column="appy_store_id" property="appyStoreId" />
+        <result column="description" property="description" />
+        <result column="far_store_id" property="farStoreId" />
+        <result column="far_store_type" property="farStoreType" />
+        <result column="check_status" property="checkStatus" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, apply_number, apply_uid, apply_username, apply_time, apply_type, appy_store_id, description, far_store_id, far_store_type, check_status, del_flag
+    </sql>
+
+</mapper>

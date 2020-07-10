@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.service.ServiceStationRepairOrderHourMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.service.ServiceStationRepairOrderHour">
+        <id column="id" property="id" />
+        <result column="service_station_repair_order_id" property="serviceStationRepairOrderId" />
+        <result column="repair_project" property="repairProject" />
+        <result column="first_repair_hour" property="firstRepairHour" />
+        <result column="accumulation_hour" property="accumulationHour" />
+        <result column="repair_count" property="repairCount" />
+        <result column="total_hour_count" property="totalHourCount" />
+        <result column="hour_cost" property="hourCost" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, service_station_repair_order_id, repair_project, first_repair_hour, accumulation_hour, repair_count, total_hour_count, hour_cost, del_flag
+    </sql>
+
+</mapper>

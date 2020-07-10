@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/vehicle-admin/vehicle-admin.iml" filepath="$PROJECT_DIR$/vehicle-admin/vehicle-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vehicle-common/vehicle-common.iml" filepath="$PROJECT_DIR$/vehicle-common/vehicle-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vehicle-mbpg/vehicle-mbpg.iml" filepath="$PROJECT_DIR$/vehicle-mbpg/vehicle-mbpg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vehiclefile.iml" filepath="$PROJECT_DIR$/vehiclefile.iml" />
+    </modules>
+  </component>
+</project>

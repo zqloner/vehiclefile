@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.store.StoreOrderListMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.store.StoreOrderList">
+        <id column="id" property="id" />
+        <result column="current_store_id" property="currentStoreId" />
+        <result column="order_number" property="orderNumber" />
+        <result column="out_store_type" property="outStoreType" />
+        <result column="faraway_store_id" property="farawayStoreId" />
+        <result column="current_operator_name" property="currentOperatorName" />
+        <result column="description" property="description" />
+        <result column="consigner_uername" property="consignerUername" />
+        <result column="consigner_address" property="consignerAddress" />
+        <result column="consigner_time" property="consignerTime" />
+        <result column="receive_username" property="receiveUsername" />
+        <result column="receive_address" property="receiveAddress" />
+        <result column="company" property="company" />
+        <result column="waybill_number" property="waybillNumber" />
+        <result column="waybill_price" property="waybillPrice" />
+        <result column="type" property="type" />
+        <result column="current_operator_id" property="currentOperatorId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, current_store_id, order_number, out_store_type, faraway_store_id, current_operator_name, description, consigner_uername, consigner_address, consigner_time, receive_username, receive_address, company, waybill_number, waybill_price, type, current_operator_id, create_time, update_time, del_flag
+    </sql>
+
+</mapper>

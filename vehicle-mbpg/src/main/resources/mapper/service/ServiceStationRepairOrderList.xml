@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.service.ServiceStationRepairOrderListMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.service.ServiceStationRepairOrderList">
+        <id column="id" property="id" />
+        <result column="service_station_id" property="serviceStationId" />
+        <result column="cadre_uid" property="cadreUid" />
+        <result column="vehicle_info_id" property="vehicleInfoId" />
+        <result column="fault_address" property="faultAddress" />
+        <result column="run_mileage" property="runMileage" />
+        <result column="service_station_out_technician" property="serviceStationOutTechnician" />
+        <result column="is_compensate" property="isCompensate" />
+        <result column="service_station_duty_id" property="serviceStationDutyId" />
+        <result column="is_more_breakdown" property="isMoreBreakdown" />
+        <result column="repair_time" property="repairTime" />
+        <result column="fault_phenomenon" property="faultPhenomenon" />
+        <result column="fault_reason_id" property="faultReasonId" />
+        <result column="handle_processes" property="handleProcesses" />
+        <result column="handle_result" property="handleResult" />
+        <result column="repair_img" property="repairImg" />
+        <result column="accessory_url" property="accessoryUrl" />
+        <result column="out_distance" property="outDistance" />
+        <result column="out_mileage_price" property="outMileagePrice" />
+        <result column="service_car_price" property="serviceCarPrice" />
+        <result column="forklift_price" property="forkliftPrice" />
+        <result column="other_price" property="otherPrice" />
+        <result column="total_price" property="totalPrice" />
+        <result column="other_price_description" property="otherPriceDescription" />
+        <result column="current_level" property="currentLevel" />
+        <result column="current_check_id" property="currentCheckId" />
+        <result column="sort_no" property="sortNo" />
+        <result column="order_type" property="orderType" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_username" property="createUsername" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="status" property="status" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, service_station_id, cadre_uid, vehicle_info_id, fault_address, run_mileage, service_station_out_technician, is_compensate, service_station_duty_id, is_more_breakdown, repair_time, fault_phenomenon, fault_reason_id, handle_processes, handle_result, repair_img, accessory_url, out_distance, out_mileage_price, service_car_price, forklift_price, other_price, total_price, other_price_description, current_level, current_check_id, sort_no, order_type, create_uid, create_username, create_time, update_time, status, del_flag
+    </sql>
+
+</mapper>

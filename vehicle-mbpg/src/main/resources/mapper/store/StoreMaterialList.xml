@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mgl.dao.store.StoreMaterialListMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mgl.bean.store.StoreMaterialList">
+        <id column="id" property="id" />
+        <result column="current_store_id" property="currentStoreId" />
+        <result column="store_name" property="storeName" />
+        <result column="material_name" property="materialName" />
+        <result column="material_code" property="materialCode" />
+        <result column="material_model" property="materialModel" />
+        <result column="material_type" property="materialType" />
+        <result column="specification" property="specification" />
+        <result column="description" property="description" />
+        <result column="count" property="count" />
+        <result column="min_count" property="minCount" />
+        <result column="unit" property="unit" />
+        <result column="unit_price" property="unitPrice" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_username" property="createUsername" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, current_store_id, store_name, material_name, material_code, material_model, material_type, specification, description, count, min_count, unit, unit_price, create_uid, create_username, create_time, update_time, del_flag
+    </sql>
+
+</mapper>
