@@ -2,10 +2,11 @@ package com.mgl.bean.store;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -28,7 +29,7 @@ public class StoreTypeDict implements Serializable {
     /**
      * 1,入库类别；2出库类别；3转库类别
      */
-    private String type;
+    private Integer type;
 
     /**
      * 类别名称

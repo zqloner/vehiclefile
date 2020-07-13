@@ -1,7 +1,8 @@
 package com.mgl.service.store;
 
-import com.mgl.bean.store.StoreTypeDict;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mgl.api.CommonResult;
+import com.mgl.bean.store.StoreTypeDict;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface StoreTypeDictService extends IService<StoreTypeDict> {
 
+    CommonResult saveOrUpdatte(StoreTypeDict storeTypeDict);
+
+    CommonResult delete(Long id);
 }

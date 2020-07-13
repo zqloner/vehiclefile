@@ -200,7 +200,6 @@ layui.config({
 
     // toUpdate();
     table.on('tool(test)', function (obj) {
-        debugger;
         searchObj.id = obj.data.id;
         if (obj.event === 'edit') { // 操作—编辑
             toUpdate();

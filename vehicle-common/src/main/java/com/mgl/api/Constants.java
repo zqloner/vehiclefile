@@ -18,4 +18,11 @@ public class Constants {
     //删除
     public static final int DELFLAG_DELETE=1;
 
+//    仓库类型
+    // 入库
+    public static final int STORE_IN= 1;
+    //出库
+    public static final int STORE_OUT= 2;
+    //转库
+    public static final int STORE_TURN=3;
 }

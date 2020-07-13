@@ -161,7 +161,6 @@ layui.config({
                     $("[name=name]").val(res.data.name);
                     $("[name=id]").val(res.data.id);
                     $("[name=managerId]").val(res.data.managerId);
-                    debugger;
                     form.render();
                 }
             },
@@ -209,7 +208,7 @@ layui.config({
             });
             return false;
         } else if (obj.event === 'delete') { // 操作—删除
-            layer.confirm('确定要删除该角色吗？', function (index) {
+            layer.confirm('确定要删除该组织架构吗？', function (index) {
                 $.ajax({
                     url: "/storeOrganizationStructure/delete",
                     type: "GET",
@@ -253,7 +252,6 @@ layui.config({
                         params.managerName = adminUsers[i].name;
                     }
                 }
-                debugger;
                 $.ajax({
                     url: "storeOrganizationStructure/addOrUpdate",
                     type: "POST",
