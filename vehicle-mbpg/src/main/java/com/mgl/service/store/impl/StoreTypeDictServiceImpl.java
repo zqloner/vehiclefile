@@ -5,11 +5,8 @@ import com.mgl.api.CommonResult;
 import com.mgl.api.Constants;
 import com.mgl.bean.store.StoreTypeDict;
 import com.mgl.dao.store.StoreTypeDictMapper;
-import com.mgl.service.store.StoreMaterialListService;
 import com.mgl.service.store.StoreTypeDictService;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * <p>
@@ -22,8 +19,7 @@ import javax.annotation.Resource;
 @Service
 public class StoreTypeDictServiceImpl extends ServiceImpl<StoreTypeDictMapper, StoreTypeDict> implements StoreTypeDictService {
 
-    @Resource
-    private StoreMaterialListService materialListService;
+
 
     @Override
     public CommonResult saveOrUpdatte(StoreTypeDict storeTypeDictr) {
@@ -39,7 +35,7 @@ public class StoreTypeDictServiceImpl extends ServiceImpl<StoreTypeDictMapper, S
     @Override
     public CommonResult delete(Long id) {
         saveOrUpdatte(getById(id).setDelFlag(Constants.DELFLAG_DELETE));
-        return CommonResult.success("基础组织架构,不能删除");
+        return CommonResult.success("删除成功");
     }
 }
 

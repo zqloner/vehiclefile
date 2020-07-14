@@ -2,10 +2,11 @@ package com.mgl.bean.service;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -31,14 +32,13 @@ public class ServiceStationDutyVender implements Serializable {
     private String venderName;
 
     /**
-     * 服务站名称
-     */
-    private Long stationId;
-
-    /**
      * 0为正常；1为删除
      */
     private Integer delFlag;
 
+    /**
+     * 1为责任厂家；2为故障原因
+     */
+    private Integer type;
 
 }

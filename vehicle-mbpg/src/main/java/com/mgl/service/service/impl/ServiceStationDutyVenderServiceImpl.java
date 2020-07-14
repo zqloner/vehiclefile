@@ -1,9 +1,11 @@
 package com.mgl.service.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.mgl.api.CommonResult;
+import com.mgl.api.Constants;
 import com.mgl.bean.service.ServiceStationDutyVender;
 import com.mgl.dao.service.ServiceStationDutyVenderMapper;
 import com.mgl.service.service.ServiceStationDutyVenderService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,4 +19,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServiceStationDutyVenderServiceImpl extends ServiceImpl<ServiceStationDutyVenderMapper, ServiceStationDutyVender> implements ServiceStationDutyVenderService {
 
+    @Override
+    public CommonResult saveOrUpdatte(ServiceStationDutyVender stationDutyVender) {
+        if (stationDutyVender.getId() == null) {
+            stationDutyVender.setDelFlag(Constants.DELFLAG_N0RMAL);
+            save(stationDutyVender);
+        } else {
+            saveOrUpdate(stationDutyVender);
+        }
+        return CommonResult.success(null, "操作成功");
+    }
+
+    @Override
+    public CommonResult delete(Long id) {
+        saveOrUpdatte(getById(id).setDelFlag(Constants.DELFLAG_DELETE));
+        return CommonResult.success("删除成功");
+    }
 }

@@ -31,7 +31,7 @@ public class StoreTypeDictController {
 
     @GetMapping("/list")
     @ResponseBody
-    @ApiOperation(value = "仓库组织list",notes = "仓库组织list")
+    @ApiOperation(value = "转库类型list",notes = "转库类型list")
     public CommonResult getList(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                 @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
                                 @RequestParam("type")Integer type){
@@ -42,28 +42,28 @@ public class StoreTypeDictController {
 
     @GetMapping("/getListNoPage")
     @ResponseBody
-    @ApiOperation(value = "仓库组织list不分页",notes = "仓库组织list不分页")
+    @ApiOperation(value = "转库类型list不分页",notes = "转库类型list不分页")
     public CommonResult getListNoPage(@RequestParam("type")Integer type){
         return CommonResult.success(storeTypeDictService.list(new QueryWrapper<>(new StoreTypeDict().setType(type).setDelFlag(Constants.DELFLAG_N0RMAL))));
     }
 
     @PostMapping("/addOrUpdate")
     @ResponseBody
-    @ApiOperation(value = "新增修改组织架构",notes = "新增修改组织架构")
+    @ApiOperation(value = "新增修改转库类型",notes = "新增修改转库类型")
     public CommonResult saveOrUpdatte(StoreTypeDict storeTypeDict){
         return storeTypeDictService.saveOrUpdatte(storeTypeDict);
     }
 
     @PostMapping("/toUpdate")
     @ResponseBody
-    @ApiOperation(value = "新增修改组织架构",notes = "新增修改组织架构")
+    @ApiOperation(value = "到达修改转库类型",notes = "到达修改转库类型")
     public CommonResult toUpdate(Long id){
         return CommonResult.success(storeTypeDictService.getById(id));
     }
 
     @GetMapping("/delete")
     @ResponseBody
-    @ApiOperation(value = "删除组织架构",notes = "删除组织架构")
+    @ApiOperation(value = "删除转库类型",notes = "删除转库类型")
     public CommonResult delete(Long id){
         return storeTypeDictService.delete(id);
     }

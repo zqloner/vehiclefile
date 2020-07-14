@@ -1,7 +1,8 @@
 package com.mgl.service.service;
 
-import com.mgl.bean.service.ServiceStationDutyVender;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mgl.api.CommonResult;
+import com.mgl.bean.service.ServiceStationDutyVender;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ServiceStationDutyVenderService extends IService<ServiceStationDutyVender> {
 
+    CommonResult saveOrUpdatte(ServiceStationDutyVender stationDutyVender);
+
+    CommonResult delete(Long id);
 }
