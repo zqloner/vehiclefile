@@ -37,6 +37,12 @@ public class FixedRepaidProject implements Serializable {
     private Double costOfPrice;
 
     /**
+     * 维修项目名称
+     */
+    private String unit;
+
+
+    /**
      * 0为正常,1为删除
      */
     private Integer delFlag;

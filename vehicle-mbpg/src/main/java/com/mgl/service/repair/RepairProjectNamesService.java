@@ -1,7 +1,8 @@
 package com.mgl.service.repair;
 
-import com.mgl.bean.repair.RepairProjectNames;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mgl.api.CommonResult;
+import com.mgl.bean.repair.RepairProjectNames;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface RepairProjectNamesService extends IService<RepairProjectNames> {
 
+    CommonResult saveOrUpdatte(RepairProjectNames repairProjectNames, Long userId);
+
+    CommonResult delete(Long id);
 }

@@ -2,6 +2,7 @@ package com.mgl.bean.repair;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.mgl.annotation.ExcelColumn;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -35,21 +36,25 @@ public class RepairProjectNames implements Serializable {
     /**
      * 维修项目名称
      */
+    @ExcelColumn("项目名称")
     private String projectName;
 
     /**
      * 单位
      */
+    @ExcelColumn("单位")
     private String unit;
 
     /**
      * 初次维修工时
      */
+    @ExcelColumn("初次维修工时")
     private Double firstRepairHours;
 
     /**
      * 重复叠加工时
      */
+    @ExcelColumn("重复叠加工时")
     private Double repeatOverlayHours;
 
     /**

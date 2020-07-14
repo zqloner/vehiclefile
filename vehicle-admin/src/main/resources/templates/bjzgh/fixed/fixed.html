@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/plugins/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/bjzgh/css/common.css" media="all"/>
+    <style type="text/css">
+        .layui-tree-iconClick {
+            line-height: 20px;
+            margin-left: 0;
+        }
+        .commonStyle{
+            padding-left: 110px;
+        }
+    </style>
+</head>
+<body>
+<!--路径导航-->
+<div class="common">
+	<span class="layui-breadcrumb">
+		<a href="javascript:;">当前位置</a>
+		<span lay-separator="">：</span>
+		<a href="javascript:;">系统管理</a>
+        <span lay-separator="">/</span>
+        <a class="pointer" name="typeName" href="#">固定维修项目</a>
+	</span>
+</div>
+<!--内容主体-->
+<div class="main-content">
+    <!--按钮-->
+    <div class="btn-div">
+        <button type="button" class="layui-btn clickBtn btn-82" id="add">
+            <i class="layui-icon">&#xe608;</i> 添加
+        </button>
+    </div>
+    <!--表格-->
+    <table class="layui-table" lay-filter="test" id="table"></table>
+    <div id="page"></div>
+</div>
+<!--添加/编辑角色弹窗-->
+<div class="popup" id="popup" style="display: none">
+    <form class="layui-form popup-form" action="" lay-filter="formEvent">
+        <div  class="layui-form-item layui-form-text">
+            <label class="layui-form-label">维修项目：</label>
+            <div class="layui-input-block">
+                <input type="text" name="projectName" placeholder="项目名称" autocomplete="off" lay-verify="required" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">单位：</label>
+            <div class="layui-input-block">
+                <input type="text" name="unit" placeholder="单位" autocomplete="off" lay-verify="required" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">单价：</label>
+            <div class="layui-input-block">
+                <input type="text" name="costOfPrice" placeholder="单价" autocomplete="off" lay-verify="required" class="layui-input">
+            </div>
+        </div>
+        <div>
+            <input type="hidden" name="id">
+        </div>
+        <div class="layui-form-item submit-div">
+            <button class="layui-btn clickBtn btn-100" lay-submit lay-filter="submitData">确定</button>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="/bjzgh/pages/fixed/fixed.js"></script>
+</body>
+</html>

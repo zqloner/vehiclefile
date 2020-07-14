@@ -1,7 +1,8 @@
 package com.mgl.service.fixed;
 
-import com.mgl.bean.fixed.FixedRepaidProject;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mgl.api.CommonResult;
+import com.mgl.bean.fixed.FixedRepaidProject;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface FixedRepaidProjectService extends IService<FixedRepaidProject> {
 
+    CommonResult saveOrUpdatte(FixedRepaidProject fixedRepaidProject);
+
+    CommonResult delete(Long id);
 }

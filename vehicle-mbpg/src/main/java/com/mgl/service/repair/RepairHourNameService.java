@@ -1,7 +1,8 @@
 package com.mgl.service.repair;
 
-import com.mgl.bean.repair.RepairHourName;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mgl.api.CommonResult;
+import com.mgl.bean.repair.RepairHourName;
 
 /**
  * <p>
@@ -13,4 +14,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface RepairHourNameService extends IService<RepairHourName> {
 
+
+    CommonResult saveOrUpdatte(RepairHourName repairHourName,Long userId);
+
+    CommonResult delete(Long id);
 }
