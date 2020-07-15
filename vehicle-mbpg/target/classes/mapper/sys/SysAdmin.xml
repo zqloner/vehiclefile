@@ -36,5 +36,8 @@
         WHERE sa.id = sar.admin_id AND sar.role_id = sr.id AND sa.is_del=0 AND sa.status=0
           and  sa.id = #{id}
     </select>
+    <select id="getAountListNoPage" resultType="com.mgl.bean.sys.SysAdmin">
+        select id,name,organizational_structure_name from sys_admin where is_del=0 AND status=0
+    </select>
 
 </mapper>
