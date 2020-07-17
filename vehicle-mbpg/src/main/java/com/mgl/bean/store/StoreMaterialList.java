@@ -2,11 +2,13 @@ package com.mgl.bean.store;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import java.io.Serializable;
+import com.mgl.annotation.ExcelColumn;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -39,51 +41,61 @@ public class StoreMaterialList implements Serializable {
     /**
      * 物料名称
      */
+    @ExcelColumn("物料名称")
     private String materialName;
 
     /**
      * 物料编码
      */
+    @ExcelColumn("物料编码")
     private String materialCode;
 
     /**
      * 物料型号
      */
+    @ExcelColumn("物料型号")
     private String materialModel;
 
     /**
      * 物料类型
      */
+    @ExcelColumn("物料类型")
     private String materialType;
 
     /**
      * 规格
      */
+    @ExcelColumn("规格")
     private String specification;
 
     /**
      * 说明
      */
+    @ExcelColumn("说明")
     private String description;
 
     /**
      * 数量
      */
+    @ExcelColumn("数量")
     private Integer count;
 
     /**
      * 最小备货量
      */
+    @ExcelColumn("最小备货量")
     private Integer minCount;
 
     /**
      * 单位
      */
+    @ExcelColumn("单位")
     private String unit;
 
     /**
      * 单价
      */
+    @ExcelColumn("单价")
     private Double unitPrice;
 
     /**

@@ -1,7 +1,9 @@
 package com.mgl.service.store;
 
-import com.mgl.bean.store.StoreMaterialList;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mgl.api.CommonResult;
+import com.mgl.bean.store.StoreMaterialList;
+import com.mgl.bean.sys.SysAdmin;
 
 /**
  * <p>
@@ -13,4 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface StoreMaterialListService extends IService<StoreMaterialList> {
 
+    CommonResult saveOrUpdatte(StoreMaterialList storeMaterialList, SysAdmin sysAdmin);
+
+    CommonResult delete(Long id);
 }

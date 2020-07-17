@@ -26,12 +26,20 @@ layui.config({
             // 设置表头参数
             cols: [
                 [
-                    {field: 'parentName', title: '上级库房名称', width: '20%'},
-                    {field: 'name', title: '库房名称', width: '20%'}
-                    , {field: 'managerName', title: '库房管理人名称', width: '30%'}
+                    {field: 'parentName', title: '上级库房名称', width: '10%'},
+                    {field: 'name', title: '库房名称', width: '10%'}
+                    , {field: 'managerName', title: '库房管理人名称', width: '10%'}
                     , {
-                    title: '操作', width: '20%', templet: function (d) {
+                    title: '操作', width: '30%', templet: function (d) {
                         return '<a class="layui-btn layui-btn-primary layui-btn-xs table-btn" lay-event="edit">编辑</a>'
+                            + '<span class="table-cut" lay-separator="">|</span>'
+                            + '<a class="layui-btn layui-btn-primary layui-btn-xs table-btn" lay-event="materialDetail">物料列表</a>'
+                            + '<span class="table-cut" lay-separator="">|</span>'
+                            + '<a class="layui-btn layui-btn-primary layui-btn-xs table-btn" lay-event="inStore">出库</a>'
+                            + '<span class="table-cut" lay-separator="">|</span>'
+                            + '<a class="layui-btn layui-btn-primary layui-btn-xs table-btn" lay-event="outStore">入库</a>'
+                            + '<span class="table-cut" lay-separator="">|</span>'
+                            + '<a class="layui-btn layui-btn-primary layui-btn-xs table-btn" lay-event="changeStore">转库</a>'
                             + '<span class="table-cut" lay-separator="">|</span>'
                             + '<a class="layui-btn layui-btn-primary layui-btn-xs table-btn" lay-event="delete">删除</a>';
                     }
@@ -169,7 +177,7 @@ layui.config({
         searchObj.id = obj.data.id;
         if (obj.event === 'edit') { // 操作—编辑
             toUpdate();
-            projectile.elastic({title: " ", content: $("#popup"), area: ['800px', '486px']}, function () {
+            projectile.elastic({title: " ", content: $("#popup"), area: ['800px', '300px']}, function () {
                 // 监听提交
                 form.on('submit(submitData)', function (data) {
                     var params = new Object();
@@ -203,7 +211,68 @@ layui.config({
                 return false;
             });
             return false;
-        } else if (obj.event === 'delete') { // 操作—删除
+        }
+        else if (obj.event === 'materialDetail') { // 物料列表
+            window.location.href = 'route?name=store/storeMaterialList&storeId='+obj.data.id;
+        }
+        else if (obj.event === 'inStore') { // 操作—删除
+            layer.confirm('确定要删除该组织架构吗？', function (index) {
+                $.ajax({
+                    url: "/storeOrganizationStructure/delete",
+                    type: "GET",
+                    data: {"id": obj.data.id},
+                    success: function (res) {
+                        if (res.code == 200) {
+                            layer.msg("删除成功");
+                            getCadreList();
+                        } else {
+                            layer.msg(res.message);
+                        }
+                    },
+                    dataType: "json"
+                });
+                return false;
+            });
+        }
+        else if (obj.event === 'changeStore') { // 操作—删除
+            layer.confirm('确定要删除该组织架构吗？', function (index) {
+                $.ajax({
+                    url: "/storeOrganizationStructure/delete",
+                    type: "GET",
+                    data: {"id": obj.data.id},
+                    success: function (res) {
+                        if (res.code == 200) {
+                            layer.msg("删除成功");
+                            getCadreList();
+                        } else {
+                            layer.msg(res.message);
+                        }
+                    },
+                    dataType: "json"
+                });
+                return false;
+            });
+        }
+        else if (obj.event === 'outStore') { // 操作—删除
+            layer.confirm('确定要删除该组织架构吗？', function (index) {
+                $.ajax({
+                    url: "/storeOrganizationStructure/delete",
+                    type: "GET",
+                    data: {"id": obj.data.id},
+                    success: function (res) {
+                        if (res.code == 200) {
+                            layer.msg("删除成功");
+                            getCadreList();
+                        } else {
+                            layer.msg(res.message);
+                        }
+                    },
+                    dataType: "json"
+                });
+                return false;
+            });
+        }
+        else if (obj.event === 'delete') { // 操作—删除
             layer.confirm('确定要删除该组织架构吗？', function (index) {
                 $.ajax({
                     url: "/storeOrganizationStructure/delete",
