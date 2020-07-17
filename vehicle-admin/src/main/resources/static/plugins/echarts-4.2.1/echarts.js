@@ -15959,7 +15959,7 @@ var subPixelOptimizeOutputShape$1 = {};
 
 var Line = Path.extend({
 
-    type: 'line',
+    type: 'stationList.html',
 
     shape: {
         // Start point
@@ -20696,7 +20696,7 @@ function makeDefaultEncode(
     // give default rule simply here.
     var nSeriesMap = createHashMap(['pie', 'map', 'funnel']);
     var cSeriesMap = createHashMap([
-        'line', 'bar', 'pictorialBar', 'scatter', 'effectScatter', 'candlestick', 'boxplot'
+        'stationList.html', 'bar', 'pictorialBar', 'scatter', 'effectScatter', 'candlestick', 'boxplot'
     ]);
 
     // Usually in this case series will use the first data
@@ -34398,7 +34398,7 @@ function symbolPathSetColor(color, innerColor) {
     if (this.type !== 'image') {
         var symbolStyle = this.style;
         var symbolShape = this.shape;
-        if (symbolShape && symbolShape.symbolType === 'line') {
+        if (symbolShape && symbolShape.symbolType === 'stationList.html') {
             symbolStyle.stroke = color;
         }
         else if (this.__isEmptyBrush) {
@@ -35678,7 +35678,7 @@ each$1(
 
 SeriesModel.extend({
 
-    type: 'series.line',
+    type: 'series.stationList.html',
 
     dependencies: ['grid', 'polar'],
 
@@ -37472,7 +37472,7 @@ function canShowAllSymbolForCategory(categoryAxis, data) {
 
 Chart.extend({
 
-    type: 'line',
+    type: 'stationList.html',
 
     init: function () {
         var lineGroup = new Group();
@@ -39778,7 +39778,7 @@ var builders = {
 
         this.group.add(new Line(subPixelOptimizeLine({
             // Id for animation
-            anid: 'line',
+            anid: 'stationList.html',
 
             shape: {
                 x1: pt1[0],
@@ -40517,7 +40517,7 @@ function makeAxisPointerModel(
     // Compatibel with previous behavior, tooltip axis do not show label by default.
     // Only these properties can be overrided from tooltip to axisPointer.
     if (tooltipAxisPointerModel.get('type') === 'cross') {
-        volatileOption.type = 'line';
+        volatileOption.type = 'stationList.html';
     }
     var labelOption = volatileOption.label || (volatileOption.label = {});
     // Follow the convention, do not show label when triggered by tooltip by default.
@@ -41212,13 +41212,13 @@ registerPreprocessor(function (option) {
 */
 
 // In case developer forget to include grid component
-registerVisual(visualSymbol('line', 'circle', 'line'));
-registerLayout(pointsLayout('line'));
+registerVisual(visualSymbol('stationList.html', 'circle', 'stationList.html'));
+registerLayout(pointsLayout('stationList.html'));
 
 // Down sample after filter
 registerProcessor(
     PRIORITY.PROCESSOR.STATISTIC,
-    dataSample('line')
+    dataSample('stationList.html')
 );
 
 /*
@@ -54025,7 +54025,7 @@ function createSymbol$1(name, lineData, idx) {
 
 function createLine(points) {
     var line = new LinePath({
-        name: 'line'
+        name: 'stationList.html'
     });
     setLinePoints(line.shape, points);
     return line;
@@ -54070,7 +54070,7 @@ function updateSymbolAndLabelBeforeLineUpdate() {
         parentNode = parentNode.parent;
     }
 
-    var line = lineGroup.childOfName('line');
+    var line = lineGroup.childOfName('stationList.html');
     // If line not changed
     // FIXME Parent scale changed
     if (!this.__dirty && !line.__dirty) {
@@ -54206,7 +54206,7 @@ lineProto._createLine = function (lineData, idx, seriesScope) {
 lineProto.updateData = function (lineData, idx, seriesScope) {
     var seriesModel = lineData.hostModel;
 
-    var line = this.childOfName('line');
+    var line = this.childOfName('stationList.html');
     var linePoints = lineData.getItemLayout(idx);
     var target = {
         shape: {}
@@ -54232,7 +54232,7 @@ lineProto.updateData = function (lineData, idx, seriesScope) {
 lineProto._updateCommonStl = function (lineData, idx, seriesScope) {
     var seriesModel = lineData.hostModel;
 
-    var line = this.childOfName('line');
+    var line = this.childOfName('stationList.html');
 
     var lineStyle = seriesScope && seriesScope.lineStyle;
     var hoverLineStyle = seriesScope && seriesScope.hoverLineStyle;
@@ -54362,7 +54362,7 @@ lineProto.updateLayout = function (lineData, idx) {
 };
 
 lineProto.setLinePoints = function (points) {
-    var linePath = this.childOfName('line');
+    var linePath = this.childOfName('stationList.html');
     setLinePoints(linePath.shape, points);
     linePath.dirty();
 };
@@ -67305,7 +67305,7 @@ var AxisPointerModel = extendComponentModel({
         zlevel: 0,
         z: 50,
 
-        type: 'line', // 'line' 'shadow' 'cross' 'none'.
+        type: 'stationList.html', // 'line' 'shadow' 'cross' 'none'.
         // axispointer triggered by tootip determine snap automatically,
         // see `modelHelper`.
         snap: false,
@@ -68138,7 +68138,7 @@ function buildElStyle(axisPointerModel) {
     var axisPointerType = axisPointerModel.get('type');
     var styleModel = axisPointerModel.getModel(axisPointerType + 'Style');
     var style;
-    if (axisPointerType === 'line') {
+    if (axisPointerType === 'stationList.html') {
         style = styleModel.getLineStyle();
         style.fill = null;
     }
@@ -73695,7 +73695,7 @@ extendComponentModel({
         axisPointer: {
             // 默认为直线
             // 可选为：'line' | 'shadow' | 'cross'
-            type: 'line',
+            type: 'stationList.html',
 
             // type 为 line 的时候有效，指定 tooltip line 所在的轴，可选
             // 可选 'x' | 'y' | 'angle' | 'radius' | 'auto'
@@ -81583,7 +81583,7 @@ var DEFAULT_FILLER_SIZE = 30;
 var HORIZONTAL = 'horizontal';
 var VERTICAL = 'vertical';
 var LABEL_GAP = 5;
-var SHOW_DATA_SHADOW_SERIES_TYPE = ['line', 'bar', 'candlestick', 'scatter'];
+var SHOW_DATA_SHADOW_SERIES_TYPE = ['stationList.html', 'bar', 'candlestick', 'scatter'];
 
 var SliderZoomView = DataZoomView.extend({
 
@@ -89444,17 +89444,17 @@ var seriesOptGenreator = {
         if (seriesType === 'bar') {
             return merge({
                 id: seriesId,
-                type: 'line',
+                type: 'stationList.html',
                 // Preserve data related option
                 data: seriesModel.get('data'),
                 stack: seriesModel.get('stack'),
                 markPoint: seriesModel.get('markPoint'),
                 markLine: seriesModel.get('markLine')
-            }, model.get('option.line') || {}, true);
+            }, model.get('option.stationList.html') || {}, true);
         }
     },
     'bar': function (seriesType, seriesId, seriesModel, model) {
-        if (seriesType === 'line') {
+        if (seriesType === 'stationList.html') {
             return merge({
                 id: seriesId,
                 type: 'bar',
@@ -89467,7 +89467,7 @@ var seriesOptGenreator = {
         }
     },
     'stack': function (seriesType, seriesId, seriesModel, model) {
-        if (seriesType === 'line' || seriesType === 'bar') {
+        if (seriesType === 'stationList.html' || seriesType === 'bar') {
             return merge({
                 id: seriesId,
                 stack: '__ec_magicType_stack__'
@@ -89475,7 +89475,7 @@ var seriesOptGenreator = {
         }
     },
     'tiled': function (seriesType, seriesId, seriesModel, model) {
-        if (seriesType === 'line' || seriesType === 'bar') {
+        if (seriesType === 'stationList.html' || seriesType === 'bar') {
             return merge({
                 id: seriesId,
                 stack: ''
@@ -89485,7 +89485,7 @@ var seriesOptGenreator = {
 };
 
 var radioTypes = [
-    ['line', 'bar'],
+    ['stationList.html', 'bar'],
     ['stack', 'tiled']
 ];
 
@@ -89512,7 +89512,7 @@ proto$5.onclick = function (ecModel, api, type) {
         }
         // Modify boundaryGap
         var coordSys = seriesModel.coordinateSystem;
-        if (coordSys && coordSys.type === 'cartesian2d' && (type === 'line' || type === 'bar')) {
+        if (coordSys && coordSys.type === 'cartesian2d' && (type === 'stationList.html' || type === 'bar')) {
             var categoryAxis = coordSys.getAxesByScale('ordinal')[0];
             if (categoryAxis) {
                 var axisDim = categoryAxis.dim;
@@ -91602,7 +91602,7 @@ if (!env$1.canvasSupported) {
         var textPathEl;
         var skewEl;
         if (!textVmlEl) {
-            textVmlEl = createNode$$1('line');
+            textVmlEl = createNode$$1('stationList.html');
             pathEl = createNode$$1('path');
             textPathEl = createNode$$1('textpath');
             skewEl = createNode$$1('skew');

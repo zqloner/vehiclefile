@@ -1,7 +1,11 @@
 package com.mgl.service.service;
 
-import com.mgl.bean.service.ServiceStationList;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mgl.api.CommonResult;
+import com.mgl.bean.service.ServiceStationList;
+import com.mgl.bean.sys.SysAdmin;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ServiceStationListService extends IService<ServiceStationList> {
 
+    CommonResult saveOrUpdatte(ServiceStationList serviceStationList, SysAdmin sysAdmin);
+
+    CommonResult delete(Long id);
+
+    List<ServiceStationList> getByConditions(ServiceStationList serviceStationList);
 }

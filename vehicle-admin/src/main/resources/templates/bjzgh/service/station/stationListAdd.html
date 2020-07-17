@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/plugins/layui/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="/bjzgh/css/common.css" media="all"/>
+    <style type="text/css">
+        .fullFormL .formBtn {
+             margin-top: 0;
+        }
+        .fullForm .formBtn {
+             margin-top: 0;
+        }
+        .selfSelection{
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+<!--路径导航-->
+<div class="common" >
+	<span class="layui-breadcrumb">
+		<a href="javascript:;">当前位置</a>
+		<span lay-separator="">：</span>
+		<a href="javascript:;">服务站管理</a>
+        <span lay-separator="">/</span>
+        <a href="javascript:;">服务站</a>
+        <span lay-separator="">/</span>
+        <#if stationId??>
+        <a class="pointer" href="#">编辑</a>
+        <#else>
+         <a class="pointer" href="#">添加</a>
+        </#if>
+	</span>
+</div>
+<!--内容主体-->
+<div class="main-content">
+    <form class="layui-form fullForm fullFormL" action="" >
+        <#if stationId??>
+        <input type="hidden" name="stationId" value="${stationId}">
+        </#if>
+    <div class="layui-form-item">
+        <label class="layui-form-label">区域：</label>
+
+        <div class="layui-input-inline long-inline">
+            <input type="text" name="area" autocomplete="off" class="layui-input" lay-verify="pass">
+        </div>
+    </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">省份：</label>
+
+            <div class="layui-input-inline long-inline">
+                <input type="text" name="province" autocomplete="off" class="layui-input" lay-verify="pass">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">市级：</label>
+
+            <div class="layui-input-inline long-inline">
+                <input type="text" name="city" autocomplete="off" class="layui-input" lay-verify="pass">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">县级：</label>
+
+            <div class="layui-input-inline long-inline">
+                <input type="text" name="county" autocomplete="off" class="layui-input" lay-verify="pass">
+            </div>
+        </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务站名称：</label>
+
+        <div class="layui-input-inline long-inline">
+            <input type="text" name="stationName" autocomplete="off" class="layui-input" lay-verify="pass">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务站类型：</label>
+
+        <div class="layui-input-inline long-inline">
+            <input type="text" name="stationType" autocomplete="off" class="layui-input" lay-verify="pass">
+        </div>
+    </div>
+
+
+
+<div class="layui-form-item">
+    <label class="layui-form-label">所属街道地址：</label>
+
+    <div class="layui-input-inline long-inline">
+        <input type="text" name="belongTreeAddress" autocomplete="off" class="layui-input" lay-verify="pass">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">维修工时单价：</label>
+
+    <div class="layui-input-inline long-inline">
+        <input type="text" name="repaireHourPrice" autocomplete="off" class="layui-input" lay-verify="mycheck|required">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">外出里程单价：</label>
+
+    <div class="layui-input-inline long-inline">
+        <input type="text" name="outMileagePrice" autocomplete="off" class="layui-input" lay-verify="mycheck|required">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">外出补助：</label>
+
+    <div class="layui-input-inline long-inline">
+        <input type="text" name="outSubsidy" autocomplete="off" class="layui-input" lay-verify="mycheck|required">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">辅助设备使用费：</label>
+
+    <div class="layui-input-inline long-inline">
+        <input type="text" name="auxiliaryEquipmentCost" autocomplete="off" class="layui-input" lay-verify="mycheck|required">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">服务车1车牌号：</label>
+
+    <div class="layui-input-inline long-inline">
+        <input type="text" name="outCarFirst" autocomplete="off" class="layui-input" lay-verify="pass">
+    </div>
+</div>
+<div class="layui-form-item">
+    <label class="layui-form-label">服务车2车牌号：</label>
+
+    <div class="layui-input-inline long-inline">
+        <input type="text" name="outCarSecond" autocomplete="off" class="layui-input" lay-verify="pass">
+    </div>
+</div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">一级管理人：</label>
+
+        <div class="layui-input-inline">
+            <select name="firstManagerId" lay-search  lay-verify="required">
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">二级管理人：</label>
+
+        <div class="layui-input-inline">
+            <select name="secondManagerId" lay-search  lay-verify="required">
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">三级管理人：</label>
+
+        <div class="layui-input-inline">
+            <select name="thirdManagerId" lay-search  lay-verify="required">
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">四级管理人：</label>
+
+        <div class="layui-input-inline">
+            <select name="fourthManagerId" lay-search  lay-verify="required">
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务站备件库：</label>
+
+        <div class="layui-input-inline">
+            <select name="stationStoreId" lay-search  lay-verify="required">
+
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否为核心站：</label>
+
+        <div class="layui-input-inline">
+            <select name="isCoreStation" lay-search  lay-verify="required">
+                <option value="">请选择</option>
+                <option value="0">是</option>
+                <option value="1">否</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="layui-inline">
+    <label class="layui-form-label longger-label">建站时间：</label>
+
+    <div class="layui-input-inline" style="width: 100px;">
+        <input type="text" name="stationCreateDate" autocomplete="off" class="layui-input laydate" readonly>
+    </div>
+</div>
+
+        <div class="layui-form-item formBtn">
+            <div class="layui-input-block">
+                <button class="layui-btn clickBtn btn-100" lay-submit lay-filter="submitData" type="submit" name="sureButton"  >确定</button>
+                <button type="button" class="layui-btn layui-btn-primary whiteBtn btn-88" name="cenCelBtn" >返回</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="/plugins/layui/layui.js"></script>
+<script type="text/javascript" src="/bjzgh/pages/service/station/stationListAdd.js"></script>
+</body>
+</html>

@@ -4,6 +4,8 @@ import com.mgl.bean.service.ServiceStationList;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * <p>
  * 服务站列表 Mapper 接口
@@ -15,4 +17,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ServiceStationListMapper extends BaseMapper<ServiceStationList> {
 
+    List<ServiceStationList> getByConditions(ServiceStationList serviceStationList);
 }

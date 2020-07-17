@@ -46,7 +46,7 @@
                 CENTER: "center",
                 BOTTOM: "bottom",
                 NOLINE: "noline",
-                LINE: "line"
+                LINE: "stationList.html"
             },
             folder: {
                 OPEN: "open",

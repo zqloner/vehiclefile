@@ -41,5 +41,15 @@
     <sql id="Base_Column_List">
         id, area, province, city, county, station_name, station_type, first_manager_id, first_manager_name, second_manager_id, second_manager_name, third_manager_id, third_manager_name, fourth_manager_id, fourth_manager_name, station_store_id, station_store_name, is_core_station, station_create_date, belong_tree_address, repaire_hour_price, out_mileage_price, out_subsidy, auxiliary_equipment_cost, out_car_first, out_car_second, create_userId, create_userName, create_time, update_time, del_flag
     </sql>
+    <select id="getByConditions" resultType="com.mgl.bean.service.ServiceStationList">
+        select id,station_name,station_type,is_core_station,create_userName,station_store_name,belong_tree_address,station_create_date from service_station_list
+        <where>
+            del_flag =0
+        <if test="stationName != null and stationName !='' ">
+            AND station_name LIKE CONCAT('%','${stationName}','%')
+        </if>
+            order by update_time desc
+        </where>
+    </select>
 
 </mapper>

@@ -15546,7 +15546,7 @@ var subPixelOptimizeOutputShape$1 = {};
 
 var Line = Path.extend({
 
-    type: 'line',
+    type: 'stationList.html',
 
     shape: {
         // Start point
@@ -20071,7 +20071,7 @@ function makeDefaultEncode(
     // give default rule simply here.
     var nSeriesMap = createHashMap(['pie', 'map', 'funnel']);
     var cSeriesMap = createHashMap([
-        'line', 'bar', 'pictorialBar', 'scatter', 'effectScatter', 'candlestick', 'boxplot'
+        'stationList.html', 'bar', 'pictorialBar', 'scatter', 'effectScatter', 'candlestick', 'boxplot'
     ]);
 
     // Usually in this case series will use the first data
@@ -31342,7 +31342,7 @@ function firstDataNotNull(data) {
 
 SeriesModel.extend({
 
-    type: 'series.line',
+    type: 'series.stationList.html',
 
     dependencies: ['grid', 'polar'],
 
@@ -31721,7 +31721,7 @@ function symbolPathSetColor(color, innerColor) {
     if (this.type !== 'image') {
         var symbolStyle = this.style;
         var symbolShape = this.shape;
-        if (symbolShape && symbolShape.symbolType === 'line') {
+        if (symbolShape && symbolShape.symbolType === 'stationList.html') {
             symbolStyle.stroke = color;
         }
         else if (this.__isEmptyBrush) {
@@ -33508,7 +33508,7 @@ function canShowAllSymbolForCategory(categoryAxis, data) {
 
 Chart.extend({
 
-    type: 'line',
+    type: 'stationList.html',
 
     init: function () {
         var lineGroup = new Group();
@@ -38590,7 +38590,7 @@ var builders = {
 
         this.group.add(new Line(subPixelOptimizeLine({
             // Id for animation
-            anid: 'line',
+            anid: 'stationList.html',
 
             shape: {
                 x1: pt1[0],
@@ -39775,13 +39775,13 @@ registerPreprocessor(function (option) {
 */
 
 // In case developer forget to include grid component
-registerVisual(visualSymbol('line', 'circle', 'line'));
-registerLayout(layoutPoints('line'));
+registerVisual(visualSymbol('stationList.html', 'circle', 'stationList.html'));
+registerLayout(layoutPoints('stationList.html'));
 
 // Down sample after filter
 registerProcessor(
     PRIORITY.PROCESSOR.STATISTIC,
-    dataSample('line')
+    dataSample('stationList.html')
 );
 
 /*
