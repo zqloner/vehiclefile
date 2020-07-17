@@ -241,6 +241,7 @@ layui.config({
 
     // 添加组织架构弹窗
     $("#add").click(function () {
+        getTreeData();
         $("[name='parentName']").val("");
         $("[name='pid']").val("");
         $("[name='id']").val("");
@@ -335,7 +336,6 @@ layui.config({
             dataType: "json"
         });
     }
-    getTreeData();
 //    渲染树子组装数据
     function toTree(data) {
         // 删除 所有 children,以防止多次调用

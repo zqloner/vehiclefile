@@ -27,7 +27,7 @@
             ON rm.`menu_id` = sm.`id`
         WHERE sar.`admin_id` = #{id}
             AND sm.`type` = #{type}
-            AND sm.`status`=1
+            AND sm.`status`=0
     </select>
 
 </mapper>
