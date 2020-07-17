@@ -76,7 +76,6 @@ layui.config({
             }
         });
     }
-    getAdminUser();
 
     var storeList = [];
     // 获取所有仓库
@@ -99,7 +98,9 @@ layui.config({
             }
         });
     }
+
     getTotalStrore();
+    getAdminUser();
 
     //通过id获取用户名
     function getAdminUserById(arr,id){
@@ -133,7 +134,6 @@ layui.config({
                         $("[name='secondManagerId']").val(res.data.secondManagerId);
                         $("[name='thirdManagerId']").val(res.data.thirdManagerId);
                         $("[name='fourthManagerId']").val(res.data.fourthManagerId);
-                        $("[name='stationStoreId']").val(res.data.stationStoreId);
                         $("[name='isCoreStation']").val(res.data.isCoreStation);
                         $("[name='stationCreateDate']").val(res.data.stationCreateDate);
                         $("[name='belongTreeAddress']").val(res.data.belongTreeAddress);
@@ -142,6 +142,7 @@ layui.config({
                         $("[name='outSubsidy']").val(res.data.outSubsidy);
                         $("[name='auxiliaryEquipmentCost']").val(res.data.auxiliaryEquipmentCost);
                         $("[name='outCarFirst']").val(res.data.outCarFirst);
+                        $("[name='stationStoreId']").val(res.data.stationStoreId);
                         $("[name='outCarSecond']").val(res.data.outCarSecond);
                         form.render();
                     }

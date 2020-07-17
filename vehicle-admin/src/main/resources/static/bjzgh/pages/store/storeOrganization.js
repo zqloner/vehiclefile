@@ -46,9 +46,6 @@ layui.config({
         var nums = 10;
         if (pageFlag) {
             pagination.paging({data: res, num: nums}, function (obj, first) {
-                // obj包含了当前分页的所有参数，比如：
-                console.log(obj.curr); // 得到当前页，以便向服务端请求对应页的数据。
-                console.log(obj.limit); // 得到每页显示的条数
                 if (!first) {
                     pageFlag = false;
                     getCadreList(obj.curr, obj.limit)
@@ -64,8 +61,6 @@ layui.config({
         var params = new Object();
         params.pageNum = pageNumber;
         params.pageSize = pageSize;
-        console.log(pageNumber);
-        console.log(pageSize);
         $.ajax({
             url: url,
             type: "GET",
@@ -78,6 +73,9 @@ layui.config({
                     var myList = [];
                     if (oldList != undefined && oldList.length > 0) {
                         for (var i = 0; i < oldList.length; i++) {
+                            if (oldList[i].id == 1) {
+                                continue;
+                            }
                             var param = {};
                             param.name = oldList[i].name;
                             param.parentName = oldList[i].parentName;
@@ -144,8 +142,6 @@ layui.config({
 
     // 监听多选框事件（点击一个得到其附属权限）
     form.on('checkbox(formEvent)', function (data) {
-        console.log(data.elem.checked); //是否被选中，true或者false
-        console.log(data.value); //复选框value值，也可以通过data.elem.value得到
     });
 
     // 监听表格操作按钮点击
@@ -277,7 +273,6 @@ layui.config({
         illegalChar: function (value) {
             var reg = /^[\@\#\$\%\^\&\*\(\)\{\}\:\"\<\>\?\[\]]$/;
             var split = value.split("");
-            console.log(split);
             for (var i = 0; i < split.length; i++) {
                 if (reg.test(split[i])) {
                     return "非法字符";
@@ -347,7 +342,6 @@ layui.config({
         data.forEach(function (item) {
             map[item.id] = item;
         });
-//        console.log(map);
         var val = [];
         data.forEach(function (item) {
             // 以当前遍历项，的pid,去map对象中找到索引的id
@@ -377,7 +371,6 @@ layui.config({
             , click: function (obj) {
                 $("[name='parentName']").val(obj.data.title);
                 $("[name='pid']").val(obj.data.id);
-                console.log(obj.data); //得到当前点击的节点数据
             }
         });
     }
