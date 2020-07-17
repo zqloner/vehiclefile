@@ -113,7 +113,6 @@ layui.define(['jquery', 'layer'], function (exports) {
          *treeNode 将要删除的节点 JSON 数据对象
          * */
         function onRemove(event, treeId, treeNode) {
-            //debugger;
             console.log(treeNode.tId + ", " + treeNode.name);
         }
     });

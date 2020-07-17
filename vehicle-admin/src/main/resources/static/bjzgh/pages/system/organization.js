@@ -197,7 +197,6 @@ layui.config({
                     params.parentName = data.field.parentName;
                     params.pid = data.field.pid;
                     params.id = obj.data.id;
-                    debugger;
                     $.ajax({
                         url: "sysOrganizationStructure/addOrUpdate",
                         type: "POST",
@@ -255,7 +254,6 @@ layui.config({
                 params.parentName = data.field.parentName;
                 params.pid = data.field.pid;
                 params.id = data.field.id;
-                debugger;
                 $.ajax({
                     url: "sysOrganizationStructure/addOrUpdate",
                     type: "POST",
