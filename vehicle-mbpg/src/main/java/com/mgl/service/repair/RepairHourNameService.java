@@ -15,7 +15,7 @@ import com.mgl.bean.repair.RepairHourName;
 public interface RepairHourNameService extends IService<RepairHourName> {
 
 
-    CommonResult saveOrUpdatte(RepairHourName repairHourName,Long userId);
+    CommonResult saveOrUpdatte(RepairHourName repairHourName, Long userId);
 
     CommonResult delete(Long id);
 }

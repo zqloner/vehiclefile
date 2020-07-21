@@ -9,8 +9,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>vehicle-admin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>vehicle-admin</name>
     <packaging>jar</packaging>
 
     <properties>

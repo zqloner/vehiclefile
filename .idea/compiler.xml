@@ -7,9 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="vehicle-admin" />
         <module name="vehicle-mbpg" />
         <module name="vehicle-common" />
+        <module name="vehicle-admin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +17,7 @@
       <module name="vehicle-common" target="1.8" />
       <module name="vehicle-mbpg" target="1.8" />
       <module name="vehiclefile" target="1.8" />
+      <module name="vehiclem-bpg" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -24,7 +25,8 @@
       <module name="vehicle-admin" options="-parameters" />
       <module name="vehicle-common" options="-parameters" />
       <module name="vehicle-mbpg" options="-parameters" />
-      <module name="vehiclefile" options="-parameters" />
+      <module name="vehiclefile" options="" />
+      <module name="vehiclem-bpg" options="-parameters" />
     </option>
   </component>
 </project>
